@@ -10,7 +10,8 @@ class Game
     end
 
     def player_population
-      [ %W[John male], %W[Mary female], %W[Bill male] ].inject([]) { |population, player| population << OpenStruct.new(name: player.shift, gender: player.shift) }
+      [ %W[John male], %W[Mary female], %W[Bill male] ].inject([]) { |population, player|
+        population << OpenStruct.new(name: player.shift, gender: player.shift) }
     end
 
     # INPUT
@@ -19,7 +20,7 @@ class Game
     #
     # OUTPUT
     # => string that contains name of the player and the
-    # person they got in their spin. Make sure they dont return themselves beverly or you failed >:(
+    # person they got in their spin.
     def spin_for(player, population)
       # new_population = population - [player]
       # temp = new_population.shuffle
@@ -49,12 +50,14 @@ class Spin_o
   class << self
     def player_population
       pop = []
-      [ %W[John male], %W[Mary female], %W[Bill male] ].each { |p| pop << OpenStruct.new(name: p.shift, gender: p.shift)}
+      [ %W[John male], %W[Mary female], %W[Bill male] ].each { |p|
+        pop << OpenStruct.new(name: p.shift, gender: p.shift)
+      }
       pop
     end
 
     def test(func, num)
-      (0..num).each { |nfa| p eval("Spin_o."+func).to_a };nil
+      (0..num).each { p eval("Spin_o."+func).to_a };nil
     end
 
     def spin_bev_v2
